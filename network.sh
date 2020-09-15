@@ -1,6 +1,3 @@
-#Install Network-Manager:
-apt -y install network-manager
-
 #Configuration "NetworkManager.conf":
 echo "\n" >> /etc/NetworkManager/NetworkManager.conf
 echo [device] >> /etc/NetworkManager/NetworkManager.conf
