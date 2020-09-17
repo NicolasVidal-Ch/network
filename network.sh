@@ -19,7 +19,7 @@ echo wifi.scan-rand-mac-address=no >> /etc/NetworkManager/NetworkManager.conf
 #Kill cron:
 sed -i '/network-net/d' /etc/crontab
 #mount
-@reboot root mount -a
+@reboot root mount -a >> /etc/crontab
 
 #Reboot the Pi:
 reboot
