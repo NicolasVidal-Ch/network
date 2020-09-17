@@ -1,6 +1,3 @@
-#Old IP:
-IPRASP=$(ip a | grep '10.1.6' | cut -d ' ' -f6 | cut -d '/' -f1)
-
 #New IP:
 IPWLAN=$(ip route | grep 'wlan1' | cut -d ' ' -f9)
 
@@ -10,7 +7,7 @@ echo 127.0.0.1       localhost > /etc/hosts
 echo 127.0.1.1       RPI.$IPWLAN >> /etc/hosts
 
 #Send IP address on ipraspberry file:
-sed -i -e "s/$IPRASP/$IPWLAN/g" /mnt/servrpi/export/exportrpi/hosts
+sed -i -e "s/$IPWLAN/g" /mnt/servrpi/export/exportrpi/hosts
 echo RPI.$IPWLAN >> /mnt/servrpi/export/exportrpi/hostname
 
 #Configuration "NetworkManager.conf":
@@ -21,6 +18,8 @@ echo wifi.scan-rand-mac-address=no >> /etc/NetworkManager/NetworkManager.conf
 
 #Kill cron:
 sed -i '/network-net/d' /etc/crontab
+#mount
+@reboot root mount -a
 
 #Reboot the Pi:
 reboot
