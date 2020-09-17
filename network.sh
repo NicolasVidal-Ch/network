@@ -1,3 +1,18 @@
+#Old IP:
+IPRASP=$(ip a | grep '10.1.6' | cut -d ' ' -f6 | cut -d '/' -f1)
+
+#New IP:
+IPWLAN=$(ip route | grep 'wlan1' | cut -d ' ' -f9)
+
+echo RPI.$IPWLAN > /etc/hostname
+
+echo 127.0.0.1       localhost > /etc/hosts
+echo 127.0.1.1       RPI.$IPWLAN >> /etc/hosts
+
+#Send IP address on ipraspberry file:
+sed -i -e "s/$IPRASP/$IPWLAN/g" /mnt/servrpi/export/exportrpi/hosts
+echo RPI.$IPWLAN >> /mnt/servrpi/export/exportrpi/hostname
+
 #Configuration "NetworkManager.conf":
 echo "\n" >> /etc/NetworkManager/NetworkManager.conf
 echo [device] >> /etc/NetworkManager/NetworkManager.conf
