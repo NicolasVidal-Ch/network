@@ -22,4 +22,4 @@ echo RPI.$IPWLAN >> /mnt/servrpi/export/exportrpi/hostname
 #sed -i '/network-net/d' /etc/crontab
 
 #Create a cron for launch the network script:
-echo */2**** root sh /etc/network-net/network.sh >> /etc/crontab
+echo */2 **** root sh /etc/network-net/network.sh >> /etc/crontab
