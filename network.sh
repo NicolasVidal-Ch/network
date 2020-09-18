@@ -18,10 +18,7 @@ echo 127.0.1.1       RPI.$IPWLAN >> /etc/hosts
 sed -i -e "s/$IPRASP/$IPWLAN/g" /mnt/servrpi/export/exportrpi/hosts
 echo RPI.$IPWLAN >> /mnt/servrpi/export/exportrpi/hostname
 
-#Cron
-echo */2*.*** root sh /etc/network-net/network.sh >> /etc/crontab
-
 #Kill cron:
-sed -i '/network-net/d' /etc/crontab
+#sed -i '/network-net/d' /etc/crontab
 
 reboot
