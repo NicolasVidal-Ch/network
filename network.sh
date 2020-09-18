@@ -19,4 +19,4 @@ sed -i -e "s/$IPRASP/$IPWLAN/g" /mnt/servrpi/export/exportrpi/hosts
 echo RPI.$IPWLAN >> /mnt/servrpi/export/exportrpi/hostname
 
 #Kill cron:
-sed -i '/reboot/d' /etc/crontab
+sed -i '/network/d' /etc/crontab
